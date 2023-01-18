@@ -25,6 +25,11 @@ public class PostServiceImp implements PostService {
 
 
     @Override
+    public List<Post> findAllPost() {
+        return postRepo.findAll();
+    }
+
+    @Override
     public List<PostDto> findAll() {
         return (List<PostDto>) postPostDtoListMapper.mapList(postRepo.findAll(), new PostDto());
     }
@@ -47,5 +52,10 @@ public class PostServiceImp implements PostService {
     @Override
     public void update(long id, PostDto p) {
        postRepo.update(id, modelMapper.map(p,Post.class));
+    }
+
+    @Override
+    public List<Post> findPostByAuthor(String author) {
+        return postRepo.findPostByAuthor(author);
     }
 }

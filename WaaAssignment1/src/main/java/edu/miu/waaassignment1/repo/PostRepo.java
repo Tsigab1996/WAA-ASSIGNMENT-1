@@ -12,6 +12,6 @@ public interface PostRepo {
     public void save(Post post);
     public void delete(long id);
     public void update(long id, Post post);
-
+    public List<Post> findPostByAuthor(String author);
 
 }

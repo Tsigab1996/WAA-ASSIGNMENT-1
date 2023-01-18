@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PostService {
 
-
+    List<Post> findAllPost();
     public List<PostDto> findAll();
 
     PostDto getById(long id);
@@ -18,5 +18,6 @@ public interface PostService {
     void delete(long id);
 
     void update(long id, PostDto p);
+    public List<Post> findPostByAuthor(String author);
 
 }

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class PostRepoImp implements PostRepo {
 
@@ -53,5 +55,10 @@ public class PostRepoImp implements PostRepo {
                 posts.set(i, post);
             }
         }
+    }
+
+    @Override
+    public List<Post> findPostByAuthor(String author) {
+        return posts.stream().filter(p->p.getAuthor().equals(author)).collect(Collectors.toList());
     }
 }
